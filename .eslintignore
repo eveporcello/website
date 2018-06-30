@@ -1,8 +1,0 @@
-bin
-node_modules
-coverage
-build
-dist
-config
-scripts
-__snapshots__
