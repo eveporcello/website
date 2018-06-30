@@ -1,6 +1,6 @@
 import React from 'react'
 import { Placeholder } from '../Placeholder'
-import { Link } from 'react-router-dom'
+import { Link } from '@reach/router'
 
 const taskInfo = {
   title: 'Registration',

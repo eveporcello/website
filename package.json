@@ -1,17 +1,19 @@
 {
   "name": "high-fives-website",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@reach/router": "^1.1.1",
     "apollo-boost": "^0.1.10",
     "apollo-server": "^2.0.0-rc.6",
     "graphql": "^0.13.2",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-apollo": "^2.1.8",
     "react-dom": "^16.4.1",
     "react-icons": "^2.2.7",
-    "react-router-dom": "^4.3.1",
     "react-scripts": "1.0.14",
+    "react-spinners": "0.3.2",
     "styled-components": "^3.3.3"
   },
   "scripts": {
@@ -20,11 +22,26 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:netlify": "npm run build && cp _redirects build/_redirects",
+    "pretest": "npm run test:lint",
     "test": "react-scripts test --env=jsdom",
+    "test:lint": "./node_modules/.bin/eslint . --color --fix",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-eslint": "7.2.3",
     "concurrently": "^3.6.0",
-    "nodemon": "^1.17.5"
+    "eslint": "4.1.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.34.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-node": "5.1.1",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-standard": "3.0.1",
+    "nodemon": "^1.17.5",
+    "standard": "10.0.2"
   }
 }

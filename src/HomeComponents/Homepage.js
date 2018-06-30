@@ -19,5 +19,5 @@ export const Homepage = () => (
     <HomeEvents />
     <SocialIcons />
     <MailingList />
-  </main>
+  </main >
 )

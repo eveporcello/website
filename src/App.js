@@ -5,14 +5,17 @@ import { Registration } from './RegistrationComponents/Registration'
 import { Registration1 } from './RegistrationComponents/Registration1'
 import { Registration2 } from './RegistrationComponents/Registration2'
 import { Footer } from './Footer'
-import styled from 'styled-components'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import styled, { ThemeProvider } from 'styled-components'
+import { Router } from '@reach/router'
+
+import { theme } from './utils/theme'
 
 const Container = styled.section`
   width: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  font-family: '${(props) => props.theme.fonts.primary}', sans-serif;
   header {
     border: 8px solid #ff6347;
   }
@@ -30,18 +33,18 @@ const Container = styled.section`
 class App extends Component {
   render() {
     return (
-      <Router>
+      <ThemeProvider theme={theme}>
         <Container>
           <Header />
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route exact path="/registration" component={Registration} />
-            <Route exact path="/registration-1" component={Registration1} />
-            <Route exact path="/registration-2" component={Registration2} />
-          </Switch>
+          <Router>
+            <Homepage path="/" />
+            <Registration path="/registration" />
+            <Registration1 path="/registration-1" />
+            <Registration2 path="/registration-2" />
+          </Router>
           <Footer />
         </Container>
-      </Router>
+      </ThemeProvider>
     )
   }
 }
