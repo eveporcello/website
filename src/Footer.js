@@ -95,8 +95,8 @@ export const Footer = () => (
       <Button>Submit</Button>
     </Form>
     <List dir="column">
-      {links.map(link => (
-        <ListItem border="unset" pad="0.6rem 0">
+      {links.map((link, i) => (
+        <ListItem key={i} border="unset" pad="0.6rem 0">
           <StyledLink to={link.href}>{link.text}</StyledLink>
         </ListItem>
       ))}

@@ -1,32 +1,59 @@
 import React from 'react'
-import { Placeholder } from '../Placeholder'
-import { Link } from '@reach/router'
+import StyledLinkRegistration from '../common'
+import styled from 'styled-components'
+import classnames from 'classnames'
 
-const taskInfo = {
-  title: 'Homepage Athletes',
-  route: '/src/HomeComponents/HomeAthletes.js',
-  issues: [
-    {
-      title: '#24 - Homepage',
-      url: 'https://github.com/HighFivesFoundation/website/issues/24'
-    },
-    {
-      title: '#9 - Athlete Application Form',
-      url: 'https://github.com/HighFivesFoundation/website/issues/24'
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    margin: .2em 0 .5em 0;
+  }
+
+  .athlete-containers {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+
+    img {
+      min-height: 225px;
+      max-width: 225px;
     }
-  ],
-  wireframe: 'https://app.moqups.com/eporcello/BTrdKJSG6L/view/page/ad64222d5',
-  thumbnail: '/img/athletes.png'
-}
+  }
+`
+
+// Faux Assets
+// This will eventually be a random set of 4 of the entire athlete dataset
+const fauxAthletesList = [
+  {
+    name: 'Athlete 1',
+    avatar: require('../Assets/athletes/athlete1.png')
+  },
+  {
+    name: 'Athlete 2',
+    avatar: require('../Assets/athletes/athlete2.png')
+  },
+  {
+    name: 'Athlete 3',
+    avatar: require('../Assets/athletes/athlete3.png')
+  },
+  {
+    name: 'Athlete 4',
+    avatar: require('../Assets/athletes/athlete4.png')
+  }
+]
 
 export const HomeAthletes = () => (
-  <div>
-    <Placeholder {...taskInfo}>
-      <Link to="/registration">
-        <button style={{ height: 70, width: 175 }}>
-          Athlete Application Registration
-        </button>
-      </Link>
-    </Placeholder>
-  </div>
+  <Container className={classnames('row', 'around-xs')}>
+    <StyledLinkRegistration type='button' text='Apply to become a High Fives Athlete' />
+    <h2 className={classnames('end-sm', 'center-xs')}>Our Athletes</h2>
+    <section className={classnames('athlete-containers')}>
+      {fauxAthletesList.map((athlete, i) => {
+        return (
+          <img className='col-xs-2' key={i} src={athlete.avatar} alt={athlete.name} />
+        )
+      })}
+    </section>
+  </Container>
 )

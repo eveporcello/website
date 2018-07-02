@@ -1,21 +1,22 @@
 import React from 'react'
-import { Placeholder } from '../Placeholder'
+import styled from 'styled-components'
 
-const taskInfo = {
-  title: 'What is High Fives?',
-  route: '/src/HomeComponents/WhatIs.js',
-  issues: [
-    {
-      title: '#5 - Homepage',
-      url: 'https://github.com/HighFivesFoundation/website/issues/5'
-    }
-  ],
-  wireframe: 'https://app.moqups.com/eporcello/BTrdKJSG6L/view/page/ad64222d5',
-  thumbnail: '/img/whatis.png'
-}
+export const Container = styled.section`
+  h2 {
+    margin: 0 0 .25em 0;
+  }
+
+  p {
+    margin: 0;
+    flex-basis: 100%;
+  }
+`
 
 export const WhatIs = () => (
-  <div>
-    <Placeholder {...taskInfo} />
-  </div>
+  <Container className='row'>
+    <div className="col-lg-6 col-md-6 col-sm-12">
+      <h2>What is High Fives?</h2>
+      <p>The High Fives Foundation supports the dreams of mountain action sports athletes by raising injury prevention awareness while providing resources and inspiration to those who suffer life-altering injuries.</p>
+    </div>
+  </Container>
 )

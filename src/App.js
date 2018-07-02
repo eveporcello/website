@@ -16,15 +16,40 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   font-family: '${(props) => props.theme.fonts.primary}', sans-serif;
+
   header {
     border: 8px solid #ff6347;
   }
+
   main {
     border: 8px solid #568f56;
+
+    h2, h3, h4,
+    p, ul, ol, li, dl {
+      color: ${(props) => props.theme.colors.arsenic}
+      line-height: normal;
+    }
+
+    h2, h3, h4 {
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    > section {
+      margin: 0;
+      padding: 1rem;
+    }
   }
+
   footer {
     border: 8px solid #24248f;
   }
+
   img {
     height: 75px;
   }
