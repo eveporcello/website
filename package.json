@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@highfivesfoundation/schema-provider": "0.0.6",
     "@reach/router": "^1.1.1",
     "apollo-boost": "^0.1.10",
     "apollo-server": "^2.0.0-rc.6",
@@ -18,8 +19,8 @@
     "styled-components": "^3.3.3"
   },
   "scripts": {
-    "mock:api": "nodemon -e js,graphql src/graphql-server",
-    "start:dev": "concurrently --kill-others-on-fail \"yarn mock:api\" \"yarn start\"",
+    "mock:api": "h5-mock-server",
+    "start:dev": "concurrently --kill-others-on-fail \"h5-mock-server\" \"yarn start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:netlify": "npm run build && cp _redirects build/_redirects",
