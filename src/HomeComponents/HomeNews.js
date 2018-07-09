@@ -1,47 +1,61 @@
 import React from 'react'
+import { Query } from 'react-apollo'
+import { HOMEPAGE_QUERY } from './Homepage'
+import { Spinner } from '../common/Spinner'
 import styled from 'styled-components'
 import { Link } from '@reach/router'
-
-const newsItems = [
-  {
-    id: 'A',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing lorem elit mon vivamus',
-    content: 'Curabitur massa turpis, ornare sed semper condimentum, ornare ut odio. Cras hendrerit lacus neque, non iaculis libero iaculis sed'
-  },
-  {
-    id: 'B',
-    title: 'In vel leo mauris cras risus',
-    content: 'Ut libero dui, faucibus eget feugiat at, fermentum at erat. Vestibulum eget ante quis purus condimentum posuere in non urna.'
-  },
-  {
-    id: 'C',
-    title: 'Commodo sit amet tellus sit amet, tempus convallis lectus lorem',
-    content: 'Curabitur massa turpis, ornare sed semper condimentum, ornare ut odio. Cras hendrerit lacus neque, non iaculis libero iaculis sed.'
-  }
-]
-
-export const NewsItem = ({ id, title, children }) =>
-  <div className="news-item">
-    <h2>{title}</h2>
-    <p>{children}</p>
-    <Link to={`/news/${id}`} />
-  </div>
+import Arrow from 'react-icons/lib/fa/long-arrow-right'
 
 export const HomeNews = () => (
-  <Container>
-    <h1>News</h1>
-    {newsItems.map(item => 
-      <NewsItem key={item.id}
-        title={item.title}
-        url={item.url}>{item.content}</NewsItem>
-    )}
-    <Link to="/news" />
-  </Container>
+  <Query query={HOMEPAGE_QUERY} fetchPolicy="cache-and-network">
+    {({ loading, data }) => 
+      <Container>
+        <h1>News</h1>
+        {loading && <Spinner />}
+        {data && data.allNews.map(newsStory => 
+          <div className="news-story" key={newsStory.id}>
+            <h2>{newsStory.title}</h2>
+            <p>{newsStory.description}</p>
+            <a href={newsStory.url} target="blank">Read More <Arrow /></a>
+          </div>
+        )}
+        <hr />
+        <Link to="/news">See All News <Arrow /></Link>
+      </Container>
+    }
+  </Query>
 )
 
 const Container = styled.section`
+  width: 50%;
   color: white;
   background-color: ${props => props.theme.colors.limedSpruce};
   padding: 1em;
 
+  h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: ${props => props.theme.colors.contrast};
+    text-decoration: none;
+  }
+
+  div.news-story {
+
+    margin: 50px 0;
+
+    h2, p {
+      color: ${props => props.theme.colors.ecruWhite};
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+  }
 `

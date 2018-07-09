@@ -6,6 +6,18 @@ import { HomeAthletes } from './HomeAthletes'
 import { HomeNews } from './HomeNews'
 import { HomeEvents } from './HomeEvents'
 import { MailingList } from './MailingList'
+import { gql } from 'apollo-boost'
+
+export const HOMEPAGE_QUERY = gql`
+  query homepage {
+    allNews(count:3) {
+      id
+      title
+      description
+      url
+    }
+  }
+`
 
 export const Homepage = () => (
   <main>

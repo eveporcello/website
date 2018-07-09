@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { theme } from '../utils/theme'
 import { SyncLoader } from 'react-spinners'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Center = styled.div`
 height: 100%;
@@ -19,7 +19,7 @@ export const Spinner = ({ loading = false, color = theme.colors.contrast }) => {
     ) : null
 }
 
-Spinner.PropTypes = {
+Spinner.propTypes = {
     loading: PropTypes.bool,
     color: PropTypes.string,
 } 
