@@ -8,11 +8,15 @@ import Arrow from 'react-icons/lib/fa/long-arrow-right'
 
 export const HomeNews = () => (
   <Query query={HOMEPAGE_QUERY} fetchPolicy="cache-and-network">
-    {({ loading, data }) => 
+    {({ loading, data, error }) => 
       <Container>
         <h1>News</h1>
         {loading && <Spinner />}
-        {data && data.allNews.map(newsStory => 
+        {!error && 
+          data && 
+          data.allNews && 
+          data.allNews.length &&
+          data.allNews.map(newsStory => 
           <div className="news-story" key={newsStory.id}>
             <h2>{newsStory.title}</h2>
             <p>{newsStory.description}</p>
