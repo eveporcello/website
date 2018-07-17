@@ -9,13 +9,14 @@ import styled, { ThemeProvider } from 'styled-components'
 import { Router } from '@reach/router'
 
 import { theme } from './utils/theme'
+import './utils/global'
 
 const Container = styled.section`
   width: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  font-family: '${(props) => props.theme.fonts.primary}', sans-serif;
+  font-family: '${props => props.theme.fonts.primary}', sans-serif;
 
   header {
     border: 8px solid #ff6347;
@@ -26,7 +27,7 @@ const Container = styled.section`
 
     h2, h3, h4,
     p, ul, ol, li, dl {
-      color: ${(props) => props.theme.colors.arsenic}
+      color: ${props => props.theme.colors.arsenic}
       line-height: normal;
     }
 
@@ -44,10 +45,6 @@ const Container = styled.section`
       margin: 0;
       padding: 1rem;
     }
-  }
-
-  footer {
-    border: 8px solid #24248f;
   }
 
   img {
