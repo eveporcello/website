@@ -29,4 +29,4 @@ REACT_APP_GRAPHQL_ENDPOINT=<YOUR ENDPOINT HERE>
 
 ### Staging and Production Websites
 * __staging__: [https://staging--highfivesfoundation.netlify.com](https://staging--highfivesfoundation.netlify.com)
-* __produciton__: [https://highfivesfoundation.netlify.com](https://highfivesfoundation.netlify.com)
+* __production__: [https://highfivesfoundation.netlify.com](https://highfivesfoundation.netlify.com)
