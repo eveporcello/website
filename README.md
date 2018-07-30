@@ -21,7 +21,7 @@ This project contains the source code for the High Fives Foundation website.
 If you have taken the time to clone and deploy the [graphql-lambda](https://github.com/HighFivesFoundation/graphql-lambda) backend, you can use your own dev environment by adding an environment variable called `REACT_APP_GRAPHQL_ENDPOINT`,
 
 1. Create a `.env` file in the root of your project
-2. Add the following declaration to that file
+2. Add the following declaration to that file:
 
 ```
 REACT_APP_GRAPHQL_ENDPOINT=<YOUR ENDPOINT HERE>
